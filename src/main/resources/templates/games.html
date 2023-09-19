@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="card" th:each="game : ${games}">
+			<div class="card-header" th:text="${game.nome}">Título do game:</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 col-sm-8 mb-3">
+						<div>
+							Valor: <span th:text="${game.valor}">159,69</span>
+						</div>
+						<div>
+							Data de lançamento: <span th:text="${game.lancamento}">10/05/1992</span>
+						</div>
+
+						<div>Game</div>
+						<div>
+							<input class="form-control" th:value="${game.urlGame}"
+								value="URL do game" />
+						</div>
+
+						<div>Detalhes</div>
+						<div>
+							<textarea class="form-control" th:text="${game.detalhes}"
+								text="Detalhes do game" />
+						</div>
+					</div>
+					<div class="col-12 col-sm-4">
+						<div>
+							<img class="img-thumbnail" th:src="${game.urlGameImage}" src="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
